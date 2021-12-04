@@ -39,10 +39,8 @@ thermo_modify   flush yes
 fix             fnpt all npt temp 298.1 298.15 200.0 iso 0.9869 0.9869 1000.0
 
 timestep	1.0
-run             500000
+run             250000
 
-unfix		1 
-reset_atom_ids
 write_data  16by16by16_H2O.data pair ij
 
 
