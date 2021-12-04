@@ -29,20 +29,19 @@ fix             1 gH2O shake 1.0e-4 100 0 b 1 a 1
 
 variable        massAll equal mass(all)/6.022e23
 variable        volCm3  equal vol*1.0e-24
-variable        density_SYS equal v_massAll/v_volCm3
+variable        density_sys equal v_massAll/v_volCm3
 
 
 thermo          1000
-thermo_style    custom step temp vol etotal pe ke epair ecoul lx ly lz v_density_SYS cpuremain
+thermo_style    custom step temp vol etotal pe ke epair ecoul lx ly lz v_density_sys cpuremain
 thermo_modify   flush yes
 
 fix             fnpt all npt temp 298.1 298.15 200.0 iso 0.9869 0.9869 1000.0
 
 timestep	1.0
-run             200000
+run             500000
 
 unfix		1 
-unfix		fnpt
 reset_atom_ids
 write_data  16by16by16_H2O.data pair ij
 
